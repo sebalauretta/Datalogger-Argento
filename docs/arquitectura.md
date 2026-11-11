@@ -4,7 +4,7 @@
 
 Datalogger Argento es un sistema autónomo de adquisición y registro de variables ambientales, desarrollado sobre la plataforma ESP32. Su arquitectura integra sensores digitales, almacenamiento local, conectividad inalámbrica y servicios de almacenamiento remoto.
 
-El sistema fue concebido para el monitoreo de condiciones ambientales en espacios de exhibición de bienes culturales, dentro del campo de la conservación preventiva.
+El sistema fue concebido para el monitoreo de las condiciones ambientales en espacios de exhibición de bienes culturales, dentro del campo de la conservación preventiva.
 
 La arquitectura se organiza en cinco módulos funcionales:
 
@@ -16,11 +16,11 @@ La arquitectura se organiza en cinco módulos funcionales:
 
 ## 2. Unidad de procesamiento
 
-El componente central del sistema es el microcontrolador ESP32-WROOM-32E.
+El componente central del sistema es el microcontrolador **ESP32-WROOM-32E**.
 
 Este módulo administra la comunicación con los sensores, procesa las mediciones, gestiona el almacenamiento en memoria, establece la conexión WiFi y controla los ciclos de funcionamiento y bajo consumo energético.
 
-La programación está desarrollada en C++ mediante Arduino IDE.
+La programación está desarrollada en lenguaje C++ mediante Arduino IDE.
 
 ## 3. Módulo de adquisición de datos
 
@@ -33,7 +33,7 @@ El sensor Adafruit SHT31 permite adquirir dos variables ambientales:
 - Temperatura, expresada en grados Celsius (°C).
 - Humedad relativa, expresada en porcentaje (% HR).
 
-El firmware utiliza la dirección I²C 0x45 para inicializar el sensor.
+El firmware utiliza la dirección I²C `0x45` para inicializar el sensor.
 
 ### 3.2. Sensor BH1750
 
@@ -47,17 +47,23 @@ Una vez adquiridas las lecturas, el firmware aplica ecuaciones lineales de corre
 
 **Temperatura:**
 
-T corregida = 1,025 × T medida − 0,6151
+\[
+T_{\mathrm{corregida}}=1{,}025 \times T_{\mathrm{medida}}-0{,}6151
+\]
 
 **Humedad relativa:**
 
-HR corregida = 1,1684 × HR medida − 12,487
+\[
+HR_{\mathrm{corregida}}=1{,}1684 \times HR_{\mathrm{medida}}-12{,}487
+\]
 
 **Iluminancia:**
 
-E corregida = 1,0792 × E medida − 7,8014
+\[
+E_{\mathrm{corregida}}=1{,}0792 \times E_{\mathrm{medida}}-7{,}8014
+\]
 
-Las mediciones corregidas son las que posteriormente se utilizan para el registro local, la transmisión y la evaluación ambiental.
+Las mediciones corregidas se utilizan posteriormente para el registro local, la transmisión y, cuando corresponde, la evaluación de las condiciones ambientales.
 
 ## 4. Módulo de almacenamiento local
 
@@ -65,7 +71,7 @@ El sistema utiliza SPIFFS (SPI Flash File System), un sistema de archivos integr
 
 Esta modalidad permite conservar información sin depender de una conexión permanente a Internet.
 
-El firmware administra tres archivos:
+El firmware contempla la administración de tres archivos:
 
 | Archivo | Función |
 |---|---|
@@ -77,23 +83,25 @@ El número de muestra se recupera al iniciar el dispositivo, se incrementa y se 
 
 Las mediciones se incorporan al archivo CSV mediante la función `appendCSV()`.
 
+El almacenamiento local permite mantener registros durante interrupciones de conectividad. Sin embargo, la disponibilidad de fecha y hora depende de la sincronización mediante NTP.
+
 ## 5. Módulo de conectividad y almacenamiento remoto
 
-La comunicación inalámbrica se realiza mediante WiFi, utilizando la biblioteca WiFi.h.
+La comunicación inalámbrica se realiza mediante WiFi, utilizando la biblioteca `WiFi.h`.
 
-El firmware establece un tiempo máximo de espera de 8 segundos para intentar conectarse a la red configurada.
+El firmware establece un tiempo máximo de espera de aproximadamente 8 segundos para intentar conectarse a la red configurada.
 
 Cuando la conexión se establece correctamente, el dispositivo sincroniza la fecha y hora mediante servidores NTP y habilita la comunicación con Firebase Realtime Database.
 
 ### 5.1. Firebase Realtime Database
 
-La transmisión de datos se realiza mediante la biblioteca Firebase_ESP_Client.
+La transmisión de datos se realiza mediante la biblioteca `Firebase_ESP_Client`.
 
 Las mediciones se envían en formato JSON a la ruta:
 
 `/mediciones`
 
-Cada registro contiene:
+Cada registro contempla los siguientes campos:
 
 - Número de muestra.
 - Fecha.
@@ -102,13 +110,13 @@ Cada registro contiene:
 - Humedad relativa.
 - Iluminancia.
 
-El sistema también contempla rutas destinadas al estado actual de las alertas, su historial y la identificación de eventos críticos.
+El sistema también contempla rutas destinadas al estado de las alertas y al historial de eventos.
 
 ### 5.2. Funcionamiento sin conexión
 
 Cuando no se establece una conexión WiFi, el dispositivo continúa con la adquisición de variables y el almacenamiento local.
 
-En esta condición, los campos de fecha y hora se identifican como `sin_wifi`, y el estado de transmisión a Firebase se registra como `sin_firebase`.
+En esta condición, los campos de fecha y hora se identifican como `sin_wifi`, mientras que el estado de transmisión a Firebase se registra como `sin_firebase`.
 
 Esto permite conservar mediciones durante interrupciones de conectividad, aunque sin sincronización temporal mediante NTP ni transmisión remota.
 
@@ -127,21 +135,23 @@ La evaluación se realiza mediante la función `checkAndSendAlert()`.
 
 El sistema contempla tres niveles de severidad, determinados por la cantidad de mediciones consecutivas fuera de los rangos establecidos:
 
-- Alerta leve: 2 mediciones consecutivas.
-- Alerta confirmada: 6 mediciones consecutivas.
-- Evento crítico: 10 o más mediciones consecutivas.
+- **Alerta leve:** 2 mediciones consecutivas.
+- **Alerta confirmada:** 6 mediciones consecutivas.
+- **Evento crítico:** 10 o más mediciones consecutivas.
 
 La duración estimada de los eventos se calcula a partir del contador de mediciones y del intervalo programado de 30 minutos.
 
-Cuando las condiciones vuelven a encontrarse dentro de los rangos establecidos, el firmware genera un registro de cierre del evento en el archivo CSV, siempre que la evaluación haya podido ejecutarse.
+Cuando las condiciones vuelven a encontrarse dentro de los rangos establecidos, el firmware contempla la generación de un registro de cierre del evento en el archivo CSV.
+
+**Consideración funcional:** en la versión actual, la evaluación de alertas se ejecuta únicamente después de una transmisión exitosa a Firebase. Por lo tanto, esta función no opera de manera independiente de la conectividad.
 
 ## 7. Servidor web y mantenimiento
 
-El firmware incorpora un servidor web local mediante la biblioteca WebServer.h.
+El firmware incorpora un servidor web local mediante la biblioteca `WebServer.h`.
 
 Su función principal es permitir la descarga del archivo de mediciones almacenado en SPIFFS.
 
-Cuando existe conexión WiFi y el archivo `data.csv` está disponible, se habilita un período de mantenimiento de 60 segundos.
+Cuando existe conexión WiFi y el archivo `data.csv` está disponible, se habilita un período de mantenimiento de aproximadamente 60 segundos.
 
 Durante ese intervalo, el dispositivo atiende las solicitudes realizadas a la ruta:
 
@@ -151,7 +161,7 @@ El archivo se entrega en formato CSV para su posterior consulta y procesamiento.
 
 ## 8. Gestión energética
 
-El sistema utiliza el modo Deep Sleep del ESP32 para reducir el consumo energético durante los períodos de inactividad.
+El sistema utiliza el modo **Deep Sleep** del ESP32 para reducir el consumo energético durante los períodos de inactividad.
 
 El intervalo de suspensión está definido mediante la constante:
 
@@ -187,8 +197,8 @@ Intento de conexión WiFi
   |
   +---- ¿Hay conexión?
   |         |
-  |         +---- SÍ: modo mantenimiento
-  |         |       y sincronización NTP
+  |         +---- SÍ: habilitación del modo
+  |         |       mantenimiento y sincronización NTP
   |         |
   |         +---- NO: continúa sin conexión
   |
@@ -201,10 +211,13 @@ Corrección de mediciones
   v
 ¿Hay conexión WiFi?
   |
-  +---- SÍ: transmisión a Firebase
+  +---- SÍ: intento de transmisión a Firebase
   |       |
-  |       +---- Envío exitoso:
-  |               evaluación de alertas
+  |       +---- ¿Transmisión exitosa?
+  |                  |
+  |                  +---- SÍ: evaluación de alertas
+  |                  |
+  |                  +---- NO: sin evaluación de alertas
   |
   +---- NO: continúa sin transmisión
   |
@@ -221,22 +234,20 @@ Deep Sleep (1800 segundos)
 NUEVO CICLO
 ```
 
-## 10. Consideraciones sobre el estado del firmware
+## 10. Consideraciones y limitaciones de la versión actual
 
-La arquitectura documentada corresponde a la versión de firmware incluida en este repositorio.
+La arquitectura documentada corresponde a la versión de firmware incluida en este repositorio. Algunas funciones presentan aspectos pendientes de validación y mejora:
 
-Algunas funciones previstas presentan aspectos pendientes de validación:
-
-- La función `guardarEstadoEvento()` está implementada, pero no se invoca en el ciclo actual. Por lo tanto, el estado del evento no se persiste mediante `/evento.txt`.
-- La evaluación de alertas se ejecuta después de una transmisión exitosa a Firebase.
-- El archivo CSV incorpora registros de mediciones y de eventos cerrados con estructuras de columnas diferentes.
+- La función `guardarEstadoEvento()` está implementada, pero no se invoca en el ciclo actual. Por lo tanto, el estado de los eventos no se persiste mediante `/evento.txt`.
+- La evaluación de alertas se ejecuta después de una transmisión exitosa a Firebase. En consecuencia, las interrupciones de conectividad también afectan la ejecución de esta función.
+- El archivo CSV incorpora registros de mediciones y de cierre de eventos con estructuras de columnas diferentes. Esto debe considerarse al realizar su procesamiento automático.
 - La variable que informa el estado de alerta puede indicar `SI` cuando la evaluación se ejecutó correctamente, aunque no se haya producido una alerta efectiva.
 - La inicialización de los sensores no incluye una verificación explícita de éxito antes de realizar las lecturas.
 
-Estas características deben considerarse al interpretar los registros y utilizar el firmware.
+Estas características deben tenerse en cuenta al interpretar los registros y utilizar el firmware. Su identificación permite establecer aspectos concretos para futuras etapas de desarrollo y validación.
 
 ---
 
 **Datalogger Argento – Arquitectura del sistema**
 
-Universidad Nacional de San Martín – Laboratorio CEPyA – Centro TAREA.
+Universidad Nacional de San Martín – Laboratorio Centro CEPyA – Centro TAREA.
