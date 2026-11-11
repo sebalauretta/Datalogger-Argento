@@ -1,8 +1,8 @@
-# Datalogger Argento
+## Datalogger Argento
 
 ### Sistema IoT de monitoreo ambiental aplicado a la conservación preventiva del patrimonio cultural
 
-**Datalogger Argento** es un dispositivo de monitoreo ambiental desarrollado para registrar y supervisar condiciones microclimáticas en espacios de exhibición patrimonial. El proyecto busca contribuir a la conservación preventiva mediante la adquisición periódica de datos ambientales, su almacenamiento local y su transmisión a una plataforma de visualización remota.
+**Datalogger Argento** es un dispositivo de monitoreo ambiental desarrollado para registrar y supervisar las condiciones microclimáticas en espacios de exhibición patrimonial. El proyecto busca contribuir a la conservación preventiva mediante la adquisición periódica de datos ambientales, su almacenamiento local y su transmisión a una plataforma de visualización remota.
 
 El desarrollo integra electrónica, programación, sensores ambientales y tecnologías de Internet de las Cosas (IoT), con un enfoque de bajo costo, bajo consumo energético y fabricación local.
 
@@ -10,7 +10,7 @@ El desarrollo integra electrónica, programación, sensores ambientales y tecnol
 
 ## 1. Objetivos del proyecto
 
-- Registrar de manera periódica las condiciones ambientales de espacios de exhibición.
+- Registrar periódicamente las condiciones ambientales de espacios de exhibición.
 - Monitorear temperatura, humedad relativa e iluminancia.
 - Generar registros históricos que permitan analizar las variaciones ambientales a lo largo del tiempo.
 - Identificar condiciones que puedan representar riesgos para la conservación de los bienes culturales.
@@ -19,16 +19,17 @@ El desarrollo integra electrónica, programación, sensores ambientales y tecnol
 
 ## 2. Desarrollo tecnológico
 
-El dispositivo fue desarrollado desde cero en el **Laboratorio Centro CEPyA – Universidad Nacional de San Martín (UNSAM)**, en articulación con el **Centro TAREA** y en el marco del Trabajo Final Integrador de la carrera **Lic. en Conservación y Restauración del Patrimonio Cultural.**
+El dispositivo fue desarrollado desde cero en el **Laboratorio Centro CEPyA de la Universidad Nacional de San Martín (UNSAM)**, en articulación con el **Centro TAREA**, en el marco del Trabajo Final Integrador de la Licenciatura en Conservación y Restauración del Patrimonio Cultural.
 
 El sistema utiliza una placa ESP32 como unidad de procesamiento y comunicación. Su programación está realizada en lenguaje C++ mediante Arduino IDE.
 
-La carcasa del dispositivo fue diseñada para alojar los componentes electrónicos y fabricada mediante impresión 3D.
+La carcasa fue diseñada específicamente para alojar los componentes electrónicos y fabricada mediante impresión 3D.
 
 **Autoría:** Sebastián Lauretta  
-**Dirección general:** Dr. Marcos Tascon y Ana Morales  
-**Instituciones:** Universidad Nacional de San Martín – Laboratorio CEPyA y Centro TAREA.
-**APLICACIÓN :** Museo Histótico Nacional - Vitrina del Daguerrotipo
+**Dirección:** Dr. Marcos Tascon y Ana Morales  
+**Instituciones:** Universidad Nacional de San Martín – Laboratorio Centro CEPyA y Centro TAREA.  
+**Aplicación:** Museo Histórico Nacional – Vitrina del daguerrotipo.
+
 ## 3. Componentes de hardware
 
 | Componente | Función |
@@ -42,11 +43,11 @@ La carcasa del dispositivo fue diseñada para alojar los componentes electrónic
 
 ## 4. Variables ambientales
 
-El sistema registra tres variables:
+El sistema registra tres variables ambientales:
 
 - **Temperatura (°C):** permite evaluar las condiciones térmicas del entorno de exhibición.
 - **Humedad relativa (% HR):** permite identificar fluctuaciones y condiciones potencialmente desfavorables para los materiales patrimoniales.
-- **Iluminancia (lux):** permite registrar los niveles de iluminación incidentes sobre el entorno del objeto.
+- **Iluminancia (lux):** permite registrar los niveles de iluminación y analizar su evolución temporal.
 
 Las lecturas de los sensores incorporan ecuaciones de corrección obtenidas mediante procedimientos de calibración.
 
@@ -61,9 +62,9 @@ El funcionamiento del dispositivo se organiza en ciclos automáticos:
 5. Habilitación de un modo de mantenimiento para la descarga local de registros, cuando se cumplen las condiciones de conexión.
 6. Sincronización de fecha y hora mediante servidores NTP.
 7. Adquisición de temperatura, humedad relativa e iluminancia.
-8. Aplicación de ecuaciones de corrección de calibración.
+8. Aplicación de las ecuaciones de corrección de calibración.
 9. Transmisión de las mediciones a Firebase Realtime Database, cuando existe conexión.
-10. Evaluación de condiciones ambientales y generación de registros de alertas.
+10. Evaluación de las condiciones ambientales y gestión de alertas.
 11. Almacenamiento local de las mediciones en formato CSV.
 12. Desconexión de WiFi y entrada en modo Deep Sleep.
 
@@ -75,9 +76,9 @@ El dispositivo contempla dos modalidades de almacenamiento:
 
 **Almacenamiento local**
 
-Los registros se guardan en la memoria SPIFFS del ESP32, en un archivo denominado `data.csv`. Este mecanismo permite conservar mediciones incluso cuando no existe conexión a Internet.
+Los registros se guardan en la memoria SPIFFS del ESP32, en un archivo denominado `data.csv`. Este mecanismo permite conservar mediciones cuando no existe conexión a Internet.
 
-El archivo contiene los siguientes campos:
+El archivo contempla los siguientes campos:
 
 - Número de muestra.
 - Fecha.
@@ -85,14 +86,15 @@ El archivo contiene los siguientes campos:
 - Temperatura.
 - Humedad relativa.
 - Iluminancia.
+- Estado de conexión WiFi.
 - Estado de transmisión a Firebase.
 - Estado de alerta.
 
 **Almacenamiento remoto**
 
-Cuando existe conexión WiFi y Firebase se encuentra disponible, las mediciones se transmiten a Firebase Realtime Database mediante la biblioteca Firebase_ESP_Client.
+Cuando existe conexión WiFi y Firebase se encuentra disponible, las mediciones se transmiten a **Firebase Realtime Database** mediante la biblioteca `Firebase_ESP_Client`.
 
-La información se organiza en diferentes rutas de la base de datos, destinadas a mediciones, estados de alerta e historial de alertas.
+La información se organiza en diferentes rutas de la base de datos destinadas al registro de mediciones y a la gestión de estados e historial de alertas.
 
 ## 7. Sistema de alertas ambientales
 
@@ -115,9 +117,9 @@ Los parámetros están definidos para un intervalo de medición de 30 minutos.
 
 ## 8. Gestión energética
 
-Para reducir el consumo energético, el firmware incorpora el modo Deep Sleep del ESP32.
+Para reducir el consumo energético, el firmware incorpora el modo **Deep Sleep** del ESP32.
 
-El dispositivo permanece en funcionamiento durante el ciclo de adquisición, almacenamiento y transmisión de datos, y posteriormente ingresa en un estado de bajo consumo durante 1800 segundos (30 minutos).
+El dispositivo permanece activo durante el ciclo de adquisición, almacenamiento y transmisión de datos, y posteriormente ingresa en un estado de bajo consumo durante 1800 segundos (30 minutos).
 
 Este mecanismo permite optimizar la autonomía de alimentación del sistema.
 
@@ -125,7 +127,7 @@ Este mecanismo permite optimizar la autonomía de alimentación del sistema.
 
 El firmware incorpora un servidor web local que permite descargar el archivo CSV almacenado en la memoria SPIFFS.
 
-Cuando existe conexión WiFi y el archivo de mediciones está disponible, se habilita una ventana de mantenimiento de 60 segundos.
+Cuando existe conexión WiFi y el archivo de mediciones está disponible, se habilita una ventana de mantenimiento de aproximadamente 60 segundos.
 
 La descarga se realiza accediendo desde un dispositivo conectado a la misma red WiFi a la dirección IP del ESP32, seguida de la ruta `/data`.
 
@@ -154,6 +156,7 @@ Datalogger-Argento/
 │   └── Datalogger_Argento_2026_final.ino
 │
 ├── docs/
+│   └── arquitectura.md
 │
 └── .gitignore
 ```
@@ -165,19 +168,19 @@ Para utilizar el firmware se requiere:
 1. Instalar Arduino IDE.
 2. Incorporar el soporte para placas ESP32.
 3. Instalar las bibliotecas correspondientes a los sensores y Firebase.
-4. Configurar las credenciales de conexión WiFi y Firebase.
+4. Configurar las credenciales de conexión WiFi y Firebase de manera privada.
 5. Seleccionar la placa ESP32 correspondiente y cargar el firmware.
 
-**Importante:** antes de publicar o utilizar el firmware, las credenciales de red y Firebase deben configurarse de manera privada. No deben compartirse contraseñas ni claves de acceso en el repositorio público.
+**Importante:** las credenciales de red y Firebase deben configurarse de manera privada. No deben compartirse contraseñas, tokens ni claves de acceso en el repositorio público.
 
 ## 13. Estado del desarrollo
 
-Datalogger Argento es un desarrollo tecnológico en evolución. El firmware publicado corresponde a una versión de trabajo que reúne las funciones de adquisición, registro, transmisión y evaluación de condiciones ambientales.
+Datalogger Argento es un desarrollo tecnológico en evolución. El firmware publicado corresponde a una versión de trabajo que reúne funciones de adquisición, registro, transmisión y evaluación de condiciones ambientales.
 
-Su publicación tiene como finalidad documentar el desarrollo, facilitar su consulta y permitir futuras mejoras y adaptaciones.
+La publicación tiene como finalidad documentar el desarrollo, facilitar su consulta y contribuir a futuras mejoras, validaciones y adaptaciones del sistema.
 
 ---
 
-Tecnología aplicada a la conservación preventiva del patrimonio cultural.
+**Tecnología aplicada a la conservación preventiva del patrimonio cultural.**
 
-Universidad Nacional de San Martín – Laboratorio CEPyA – Centro TAREA.
+Universidad Nacional de San Martín – Laboratorio Centro CEPyA – Centro TAREA.
