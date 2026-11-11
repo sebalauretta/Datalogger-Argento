@@ -64,3 +64,6 @@ El diseño del hardware prioriza los siguientes aspectos:
 - **Monitoreo simultáneo:** adquisición de temperatura, humedad relativa e iluminancia.
 - **Desarrollo local:** utilización de componentes electrónicos accesibles y fabricación de la carcasa mediante impresión 3D.
 
+- ## 7. Esquema eléctrico de conexión
+  <img width="624" height="356" alt="image" src="https://github.com/user-attachments/assets/e3549e46-923f-4401-916d-f8170c5b8aae" />
+  
