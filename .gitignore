@@ -1,0 +1,21 @@
+# Arduino / ESP32
+*.bin
+*.elf
+*.map
+*.hex
+
+# PlatformIO
+.pio/
+
+# Entorno de desarrollo
+.vscode/
+.idea/
+
+# Datos locales
+*.csv
+*.log
+
+# Credenciales
+secrets.h
+credentials.h
+firebase_credentials.h
