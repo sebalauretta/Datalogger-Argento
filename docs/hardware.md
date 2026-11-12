@@ -1,8 +1,8 @@
-# Hardware – Datalogger Argento
+# Hardware – Datalogger Argentum
 
 ## 1. Unidad de procesamiento
 
-El sistema utiliza una placa de desarrollo basada en el microcontrolador **ESP32-WROOM-32E**, encargado de gestionar la adquisición de datos ambientales, el almacenamiento local, la comunicación inalámbrica y la transmisión de información hacia la plataforma remota.
+El sistema utiliza una placa de desarrollo basada en el microcontrolador ESP32-WROOM-32E, encargado de gestionar la adquisición de datos ambientales, el almacenamiento local, la comunicación inalámbrica y la transmisión de información hacia la plataforma remota.
 
 La elección de este microcontrolador responde a sus capacidades de procesamiento, conectividad WiFi y modos de bajo consumo energético, características que permiten implementar un sistema autónomo de monitoreo ambiental.
 
@@ -12,13 +12,13 @@ El dispositivo incorpora dos sensores digitales para el registro de las condicio
 
 ### 2.1. Temperatura y humedad relativa
 
-Se utiliza un sensor **Adafruit SHT31**, encargado de medir la temperatura y la humedad relativa del aire.
+Se utiliza un sensor Adafruit SHT31, encargado de medir la temperatura y la humedad relativa del aire.
 
 El sensor se comunica con el microcontrolador mediante el protocolo I²C y permite obtener mediciones digitales de ambas variables.
 
 ### 2.2. Iluminancia
 
-Para el registro de la iluminancia se utiliza un sensor **BH1750**, que permite medir la intensidad de la luz incidente y expresar los resultados en lux (lx).
+Para el registro de la iluminancia se utiliza un sensor BH1750, que permite medir la intensidad de la luz incidente y expresar los resultados en lux (lx).
 
 Al igual que el SHT31, se comunica con el ESP32 mediante el protocolo I²C.
 
@@ -37,12 +37,12 @@ La alimentación y las conexiones de ambos sensores se integran al circuito del 
 
 ## 4. Sistema de alimentación
 
-El dispositivo funciona mediante una batería recargable de ion de litio **modelo 18650**, con las siguientes características nominales:
+El dispositivo funciona mediante una batería recargable de ion de litio modelo 18650, con las siguientes características nominales:
 
 - Tensión de salida: 3,7–4,2 V CC.
 - Capacidad declarada: 6800 mAh.
 
-Para la recarga de la batería se incorpora un módulo **TP4056**, de la empresa ASIC, destinado a la gestión de carga de baterías de ion de litio de una celda.
+Para la recarga de la batería se incorpora un módulo TP4056, de la empresa ASIC, destinado a la gestión de carga de baterías de ion de litio de una celda.
 
 La alimentación mediante batería permite que el dispositivo funcione de manera autónoma, sin necesidad de permanecer conectado a una fuente de alimentación externa durante su operación habitual.
 
