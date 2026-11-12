@@ -113,7 +113,7 @@ La lógica contempla distintos niveles de severidad según la cantidad de medici
 | Alerta confirmada | 6 mediciones consecutivas |
 | Evento crítico | 10 o más mediciones consecutivas |
 
-Los parámetros están definidos para un intervalo de medición de 30 minutos.
+Los parámetros están definidos para un intervalo de medición de 30 minutos y deben ser configurados específicamente para cada caso de aplicación según las recomendaciones de conservación preventiva.
 
 ## 8. Gestión energética
 
@@ -170,8 +170,6 @@ Para utilizar el firmware se requiere:
 3. Instalar las bibliotecas correspondientes a los sensores y Firebase.
 4. Configurar las credenciales de conexión WiFi y Firebase de manera privada.
 5. Seleccionar la placa ESP32 correspondiente y cargar el firmware.
-
-**Importante:** las credenciales de red y Firebase deben configurarse de manera privada. No deben compartirse contraseñas, tokens ni claves de acceso en el repositorio público.
 
 ## 13. Estado del desarrollo
 
