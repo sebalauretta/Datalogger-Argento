@@ -1,6 +1,6 @@
-# Modelos 3D – Datalogger Argento
+# Modelos 3D – Datalogger Argentum
 
-Esta carpeta contiene los modelos tridimensionales desarrollados para la fabricación de los soportes y componentes de montaje del Datalogger Argento.
+Esta carpeta contiene los modelos tridimensionales desarrollados para la fabricación de los soportes y componentes de montaje del Datalogger Argentum.
 
 Los archivos se encuentran en formato STL (Standard Tessellation Language), compatible con programas de laminado e impresión 3D.
 
