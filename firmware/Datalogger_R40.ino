@@ -1,4 +1,4 @@
-// *** Datalogger Argentum *** 
+// *** Datalogger R40 *** 
 //Autoria: Sebastián Lauretta
 // Dirección Gral: Dr. Marcos Tascon - Ana Morales
 // Institución : Universidad Nacional de San Martín - Laboratorio CEPyA y Centro TAREA
@@ -407,7 +407,7 @@ String line = String(muestra) + "," +
 appendCSV(line);
 
   /* ===== INFO ===== */
-  Serial.println("\n------------  Datalogger Argentum -------------------");
+  Serial.println("\n------------  Datalogger R40 -------------------");
   Serial.println("Muestra: " + String(muestra));
   Serial.println("Fecha: " + fecha);
   Serial.println("Hora: " + hora);
