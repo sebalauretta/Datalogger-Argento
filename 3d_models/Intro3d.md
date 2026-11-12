@@ -6,7 +6,7 @@ Los archivos se encuentran en formato STL (Standard Tessellation Language), comp
 
 ## Archivos incluidos
 
-- **porta-bateria-con-modulos.stl:** modelo destinado al alojamiento de la batería y los módulos electrónicos asociados.
+- **porta-bateria-con-modulos.stl:** modelo destinado al alojamiento de la batería y los módulos electrónicos asociados (por ejemplo TP4056).
 - **soporte-ESP32.stl:** soporte para la placa de desarrollo ESP32.
 
 ## Fabricación
