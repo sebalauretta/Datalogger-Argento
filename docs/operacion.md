@@ -1,8 +1,8 @@
-# Operación del sistema – Datalogger Argento
+# Operación del sistema – Datalogger Argentum
 
 ## 1. Introducción
 
-El Datalogger Argento está diseñado para realizar el monitoreo autónomo y periódico de las condiciones ambientales en espacios de exhibición y conservación de bienes culturales.
+El Datalogger Argentum está diseñado para realizar el monitoreo autónomo y periódico de las condiciones ambientales en espacios de exhibición y conservación de bienes culturales.
 
 El dispositivo adquiere mediciones de temperatura, humedad relativa e iluminancia, las almacena en su memoria interna y, cuando dispone de conexión a internet, las transmite a una base de datos remota.
 
