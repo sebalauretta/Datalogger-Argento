@@ -2,7 +2,7 @@
 
 ### Sistema IoT de monitoreo ambiental aplicado a la conservación preventiva del patrimonio cultural
 
-**Datalogger Argentum** es un dispositivo de monitoreo ambiental desarrollado para registrar y supervisar las condiciones microclimáticas en espacios de exhibición patrimonial. El proyecto busca contribuir a la conservación preventiva mediante la adquisición periódica de datos ambientales, su almacenamiento local y su transmisión a una plataforma de visualización remota.
+**Datalogger R40** es un dispositivo de monitoreo ambiental desarrollado para registrar y supervisar las condiciones microclimáticas en espacios de exhibición patrimonial. El proyecto busca contribuir a la conservación preventiva mediante la adquisición periódica de datos ambientales, su almacenamiento local y su transmisión a una plataforma de visualización remota.
 
 El desarrollo integra electrónica, programación, sensores ambientales y tecnologías de Internet de las Cosas (IoT), con un enfoque de bajo costo, bajo consumo energético y fabricación local.
 
@@ -148,12 +148,12 @@ La descarga se realiza accediendo desde un dispositivo conectado a la misma red 
 ## 11. Estructura del repositorio
 
 ```text
-Datalogger-Argento/
+Datalogger-R40/
 │
 ├── README.md
 │
 ├── firmware/
-│   └── Datalogger_Argento_2026.ino
+│   └── Datalogger_R40.ino
 │
 ├── docs/
 │   └── arquitectura.md
@@ -181,7 +181,7 @@ Para utilizar el firmware se requiere:
 
 ## 13. Estado del desarrollo
 
-Datalogger Argento es un desarrollo tecnológico en evolución. El firmware publicado corresponde a una versión de trabajo que reúne funciones de adquisición, registro, transmisión y evaluación de condiciones ambientales.
+Datalogger R40 es un desarrollo tecnológico en evolución. El firmware publicado corresponde a una versión de trabajo que reúne funciones de adquisición, registro, transmisión y evaluación de condiciones ambientales.
 
 La publicación tiene como finalidad documentar el desarrollo, facilitar su consulta y contribuir a futuras mejoras, validaciones y adaptaciones del sistema.
 
