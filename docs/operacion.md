@@ -1,8 +1,8 @@
-# Operación del sistema – Datalogger Argentum
+# Operación del sistema – Datalogger R40
 
 ## 1. Introducción
 
-El Datalogger Argentum está diseñado para realizar el monitoreo autónomo y periódico de las condiciones ambientales en espacios de exhibición y conservación de bienes culturales.
+El Datalogger R40 está diseñado para realizar el monitoreo autónomo y periódico de las condiciones ambientales en espacios de exhibición y conservación de bienes culturales.
 
 El dispositivo adquiere mediciones de temperatura, humedad relativa e iluminancia, las almacena en su memoria interna y, cuando dispone de conexión a internet, las transmite a una base de datos remota.
 
@@ -98,4 +98,4 @@ Por estas razones, se recomienda contemplar tanto el almacenamiento local como l
 
 ## 9. Estado de desarrollo
 
-El Datalogger Argento constituye un desarrollo tecnológico en evolución. Las características descriptas corresponden a la implementación documentada del firmware y pueden modificarse a medida que se realicen nuevas pruebas y mejoras del sistema.
+El Datalogger R40 constituye un desarrollo tecnológico en evolución. Las características descriptas corresponden a la implementación documentada del firmware y pueden modificarse a medida que se realicen nuevas pruebas y mejoras del sistema.
