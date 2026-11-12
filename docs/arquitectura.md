@@ -1,8 +1,8 @@
-# Arquitectura del sistema – Datalogger Argento
+# Arquitectura del sistema – Datalogger Argentum
 
 ## 1. Descripción general
 
-Datalogger Argento es un sistema autónomo de adquisición y registro de variables ambientales, desarrollado sobre la plataforma ESP32. Su arquitectura integra sensores digitales, almacenamiento local, conectividad inalámbrica y servicios de almacenamiento remoto.
+Datalogger Argentum es un sistema autónomo de adquisición y registro de variables ambientales, desarrollado sobre la plataforma ESP32. Su arquitectura integra sensores digitales, almacenamiento local, conectividad inalámbrica y servicios de almacenamiento remoto.
 
 El sistema fue concebido para el monitoreo de las condiciones ambientales en espacios de exhibición de bienes culturales, dentro del campo de la conservación preventiva.
 
@@ -16,7 +16,7 @@ La arquitectura se organiza en cinco módulos funcionales:
 
 ## 2. Unidad de procesamiento
 
-El componente central del sistema es el microcontrolador **ESP32-WROOM-32E**.
+El componente central del sistema es el microcontrolador ESP32-WROOM-32E.
 
 Este módulo administra la comunicación con los sensores, procesa las mediciones, gestiona el almacenamiento en memoria, establece la conexión WiFi y controla los ciclos de funcionamiento y bajo consumo energético.
 
@@ -161,7 +161,7 @@ El archivo se entrega en formato CSV para su posterior consulta y procesamiento.
 
 ## 8. Gestión energética
 
-El sistema utiliza el modo **Deep Sleep** del ESP32 para reducir el consumo energético durante los períodos de inactividad.
+El sistema utiliza el modo Deep Sleep del ESP32 para reducir el consumo energético durante los períodos de inactividad.
 
 El intervalo de suspensión está definido mediante la constante:
 
@@ -247,7 +247,5 @@ La arquitectura documentada corresponde a la versión de firmware incluida en es
 Estas características deben tenerse en cuenta al interpretar los registros y utilizar el firmware. Su identificación permite establecer aspectos concretos para futuras etapas de desarrollo y validación.
 
 ---
-
-**Datalogger Argento – Arquitectura del sistema**
 
 Universidad Nacional de San Martín – Laboratorio Centro CEPyA – Centro TAREA.
