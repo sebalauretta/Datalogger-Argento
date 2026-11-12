@@ -2,7 +2,7 @@
 
 ### Sistema IoT de monitoreo ambiental aplicado a la conservación preventiva del patrimonio cultural
 
-**Datalogger Argento** es un dispositivo de monitoreo ambiental desarrollado para registrar y supervisar las condiciones microclimáticas en espacios de exhibición patrimonial. El proyecto busca contribuir a la conservación preventiva mediante la adquisición periódica de datos ambientales, su almacenamiento local y su transmisión a una plataforma de visualización remota.
+**Datalogger Argentum** es un dispositivo de monitoreo ambiental desarrollado para registrar y supervisar las condiciones microclimáticas en espacios de exhibición patrimonial. El proyecto busca contribuir a la conservación preventiva mediante la adquisición periódica de datos ambientales, su almacenamiento local y su transmisión a una plataforma de visualización remota.
 
 El desarrollo integra electrónica, programación, sensores ambientales y tecnologías de Internet de las Cosas (IoT), con un enfoque de bajo costo, bajo consumo energético y fabricación local.
 
