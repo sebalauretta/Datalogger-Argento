@@ -19,7 +19,7 @@ El desarrollo integra electrónica, programación, sensores ambientales y tecnol
 
 ## 2. Desarrollo tecnológico
 
-El dispositivo fue desarrollado desde cero en el **Laboratorio Centro CEPyA de la Universidad Nacional de San Martín (UNSAM)**, en articulación con el **Centro TAREA**, en el marco del Trabajo Final Integrador de la Licenciatura en Conservación y Restauración del Patrimonio Cultural.
+El dispositivo fue desarrollado desde cero en el Laboratorio Centro CEPyA de la Universidad Nacional de San Martín (UNSAM), en articulación con el Centro TAREA, en el marco del Trabajo Final Integrador de la Licenciatura en Conservación y Restauración del Patrimonio Cultural.
 
 El sistema utiliza una placa ESP32 como unidad de procesamiento y comunicación. Su programación está realizada en lenguaje C++ mediante Arduino IDE.
 
