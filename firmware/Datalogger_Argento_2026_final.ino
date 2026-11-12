@@ -31,7 +31,7 @@ const char* ssid = "id_red";
 const char* password = "contraseña_red";
 
 /* ========= FIREBASE ========= */
-#define FIREBASE_HOST "https://firebaseio.com/"
+#define FIREBASE_HOST "https://id_firebase/"
 #define FIREBASE_AUTH "contraseña_firebase"
 
 FirebaseData fbdo;
