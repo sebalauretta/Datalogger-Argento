@@ -1,8 +1,8 @@
-# Arquitectura del sistema – Datalogger Argentum
+# Arquitectura del sistema – Datalogger R40
 
 ## 1. Descripción general
 
-Datalogger Argentum es un sistema autónomo de adquisición y registro de variables ambientales, desarrollado sobre la plataforma ESP32. Su arquitectura integra sensores digitales, almacenamiento local, conectividad inalámbrica y servicios de almacenamiento remoto.
+Datalogger R40 es un sistema autónomo de adquisición y registro de variables ambientales, desarrollado sobre la plataforma ESP32. Su arquitectura integra sensores digitales, almacenamiento local, conectividad inalámbrica y servicios de almacenamiento remoto.
 
 El sistema fue concebido para el monitoreo de las condiciones ambientales en espacios de exhibición de bienes culturales, dentro del campo de la conservación preventiva.
 
