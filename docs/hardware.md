@@ -1,4 +1,4 @@
-# Hardware – Datalogger Argentum
+# Hardware – Datalogger R40
 
 ## 1. Unidad de procesamiento
 
