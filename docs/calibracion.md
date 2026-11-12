@@ -15,13 +15,13 @@ Las mediciones obtenidas mediante el sensor SHT31 se corrigen utilizando ecuacio
 La ecuación de calibración obtenida para el higrómetro es:
 
 \[
-y = 1{,}1684x - 12{,}487
+y = 1,1684x - 12,487
 \]
 
 Coeficiente de determinación:
 
 \[
-R^2 = 0{,}9904
+R^2 = 0,9904
 \]
 
 ### 2.2. Temperatura
@@ -29,13 +29,13 @@ R^2 = 0{,}9904
 La ecuación de calibración obtenida para el termómetro es:
 
 \[
-y = 1{,}025x - 0{,}6151
+y = 1,025x - 0,6151
 \]
 
 Coeficiente de determinación:
 
 \[
-R^2 = 0{,}9960
+R^2 = 0,9960
 \]
 
 ## 3. Calibración de iluminancia
@@ -47,13 +47,13 @@ El procedimiento contempló la obtención de diez pares de mediciones bajo ilumi
 La ecuación de calibración obtenida es:
 
 \[
-y = 1{,}0792x - 7{,}8014
+y = 1,0792x - 7,8014
 \]
 
 Coeficiente de determinación:
 
 \[
-R^2 = 0{,}9998
+R^2 = 0,9998
 \]
 
 ## 4. Resumen de resultados
