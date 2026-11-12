@@ -1,8 +1,8 @@
-# Calibración de sensores – Datalogger Argentum
+# Calibración de sensores – Datalogger R40
 
 ## 1. Objetivo
 
-La calibración de los sensores tiene como objetivo mejorar la correspondencia entre los valores registrados por el Datalogger Argentum y los valores de referencia obtenidos mediante instrumentos de medición externos.
+La calibración de los sensores tiene como objetivo mejorar la correspondencia entre los valores registrados por el Datalogger R40 y los valores de referencia obtenidos mediante instrumentos de medición externos.
 
 Para ello, se establecen relaciones matemáticas entre las mediciones originales y los valores de referencia. Estas relaciones permiten aplicar correcciones a los datos adquiridos por el dispositivo.
 
