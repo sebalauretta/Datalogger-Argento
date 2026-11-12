@@ -1,4 +1,4 @@
-## Datalogger Argento
+## Registrador de datos ambientales
 
 ### Sistema IoT de monitoreo ambiental aplicado a la conservación preventiva del patrimonio cultural
 
@@ -68,7 +68,7 @@ El funcionamiento del dispositivo se organiza en ciclos automáticos:
 11. Almacenamiento local de las mediciones en formato CSV.
 12. Desconexión de WiFi y entrada en modo Deep Sleep.
 
-El intervalo programado entre ciclos de medición es de **30 minutos**.
+El intervalo programado entre ciclos de medición es de 30 minutos.
 
 ## 6. Almacenamiento y transmisión de datos
 
@@ -92,7 +92,7 @@ El archivo contempla los siguientes campos:
 
 **Almacenamiento remoto**
 
-Cuando existe conexión WiFi y Firebase se encuentra disponible, las mediciones se transmiten a **Firebase Realtime Database** mediante la biblioteca `Firebase_ESP_Client`.
+Cuando existe conexión WiFi y Firebase se encuentra disponible, las mediciones se transmiten a Firebase Realtime Database mediante la biblioteca `Firebase_ESP_Client`.
 
 La información se organiza en diferentes rutas de la base de datos destinadas al registro de mediciones y a la gestión de estados e historial de alertas.
 
@@ -117,7 +117,7 @@ Los parámetros están definidos para un intervalo de medición de 30 minutos y 
 
 ## 8. Gestión energética
 
-Para reducir el consumo energético, el firmware incorpora el modo **Deep Sleep** del ESP32.
+Para reducir el consumo energético, el firmware incorpora el modo Deep Sleep del ESP32.
 
 El dispositivo permanece activo durante el ciclo de adquisición, almacenamiento y transmisión de datos, y posteriormente ingresa en un estado de bajo consumo durante 1800 segundos (30 minutos).
 
