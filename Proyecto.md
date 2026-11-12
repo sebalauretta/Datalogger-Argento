@@ -153,10 +153,18 @@ Datalogger-Argento/
 ├── README.md
 │
 ├── firmware/
-│   └── Datalogger_Argento_2026_final.ino
+│   └── Datalogger_Argento_2026.ino
 │
 ├── docs/
 │   └── arquitectura.md
+│   └── calibración.md
+│   └── hardware.md
+│   └── operación.md
+│
+├── 3d_models/
+│   └── comentarios.md
+│   └── ESP32-WROOM-32E.stl
+│   └── porta bateria con modulos.stl
 │
 └── .gitignore
 ```
